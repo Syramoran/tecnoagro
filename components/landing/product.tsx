@@ -96,7 +96,7 @@ export function Product() {
             Piloto automático de precisión
           </h2>
           <p className="text-secondary-foreground/70 text-lg max-w-2xl mx-auto text-pretty">
-            Compatible con tractores, pulverizadoras y cosechadoras para trabajo ininterrumpido día y noche.
+            Sistema de dirección automática basado en rueda eléctrica que transforma la conducción manual en operación semiautomática, reduciendo la fatiga del operador. Su algoritmo de planificación de rutas permite sembrar, fumigar y cosechar con precisión, aumentando el rendimiento y reduciendo el uso de agroquímicos.
           </p>
         </motion.div>
 
