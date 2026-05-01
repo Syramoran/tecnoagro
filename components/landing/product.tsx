@@ -1,8 +1,17 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState, useEffect, useCallback } from "react"
 import { Check, MessageCircle, Monitor, Gauge, Wifi, Shield, Zap, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel"
 import Image from "next/image"
 
 const features = [
@@ -47,7 +56,29 @@ const highlights = [
   "Sistema Android 10.0",
 ]
 
+const carouselImages = [
+  { src: "/eas301.png", alt: "Sistema EAS301 Pro eSurvey" },
+  { src: "/placeholder.svg", alt: "Tractor con piloto automático en campo" },
+  { src: "/placeholder.svg", alt: "Vista del sistema instalado" },
+  { src: "/placeholder.svg", alt: "Detalle del panel de control" },
+  { src: "/placeholder.svg", alt: "Conectividad y antena RTK" },
+]
+
 export function Product() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+
+  const onSelect = useCallback(() => {
+    if (!api) return
+    setCurrent(api.selectedScrollSnap())
+  }, [api])
+
+  useEffect(() => {
+    if (!api) return
+    onSelect()
+    api.on("select", onSelect)
+    return () => { api.off("select", onSelect) }
+  }, [api, onSelect])
   return (
     <section id="producto" className="py-20 bg-secondary" aria-labelledby="producto-titulo">
       <div className="container mx-auto px-4">
@@ -78,15 +109,45 @@ export function Product() {
             className="relative"
           >
             <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" />
-            <Image
-              src="/eas301.png"
-              alt="Sistema de piloto automático instalado en tractor"
-              width={600}
-              height={450}
-              className="relative rounded-2xl shadow-xl object-cover w-full [mask-image:linear-gradient(to_right,transparent,black_4rem),linear-gradient(to_bottom,transparent,black_4rem)] [mask-composite:intersect]"
-            />
-            <div className="absolute -top-6 -left-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl shadow-lg">
-              <p className="font-bold text-lg">Modelo EAS301 Pro eSurvey</p>
+            <div className="relative">
+              <div className="absolute -top-6 -left-2 z-10 bg-accent text-accent-foreground px-6 py-3 rounded-xl shadow-lg">
+                <p className="font-bold text-lg">Modelo EAS301 Pro eSurvey</p>
+              </div>
+              <Carousel
+                setApi={setApi}
+                opts={{ loop: true }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {carouselImages.map((img, i) => (
+                    <CarouselItem key={i}>
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={600}
+                        height={450}
+                        className="rounded-2xl shadow-xl object-cover w-full aspect-[4/3]"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 bg-white/70 hover:bg-white/90 border-0 shadow-sm text-secondary-foreground size-8 opacity-70 hover:opacity-100 transition-opacity" />
+                <CarouselNext className="right-2 bg-white/70 hover:bg-white/90 border-0 shadow-sm text-secondary-foreground size-8 opacity-70 hover:opacity-100 transition-opacity" />
+              </Carousel>
+              <div className="flex justify-center gap-2 mt-4">
+                {carouselImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => api?.scrollTo(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === current
+                        ? "w-5 bg-gray-500"
+                        : "w-2 bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    aria-label={`Ir a imagen ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 

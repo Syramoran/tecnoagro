@@ -73,12 +73,12 @@ export function Hero() {
                 </div>
                 <span className="text-sm">Envíos a todo el país</span>
               </div>
-              <div className="flex items-center gap-2 text-secondary-foreground/70">
+              {/* <div className="flex items-center gap-2 text-secondary-foreground/70">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <span className="text-primary font-bold text-sm">✓</span>
                 </div>
                 <span className="text-sm">Soporte técnico</span>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 

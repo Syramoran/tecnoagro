@@ -30,27 +30,33 @@ export function About() {
               tu actividad.
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-6">
-              <div className="text-center sm:text-left">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Target className="h-6 w-6 text-primary" />
+            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6">
+              <div className="flex items-start gap-3 sm:block">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 sm:mb-3">
+                  <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">Nuestra misión</h3>
-                <p className="text-sm text-muted-foreground">Democratizar el acceso a tecnología agrícola de calidad.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Nuestra misión</h3>
+                  <p className="text-sm text-muted-foreground">Democratizar el acceso a tecnología agrícola de calidad.</p>
+                </div>
               </div>
-              <div className="text-center sm:text-left">
-                <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Heart className="h-6 w-6 text-destructive" />
+              <div className="flex items-start gap-3 sm:block">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-destructive/10 flex items-center justify-center shrink-0 sm:mb-3">
+                  <Heart className="h-5 w-5 sm:h-6 sm:w-6 text-destructive" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">Nuestros valores</h3>
-                <p className="text-sm text-muted-foreground">Honestidad, cercanía y compromiso real.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Nuestros valores</h3>
+                  <p className="text-sm text-muted-foreground">Honestidad, cercanía y compromiso real.</p>
+                </div>
               </div>
-              <div className="text-center sm:text-left">
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Lightbulb className="h-6 w-6 text-accent-foreground" />
+              <div className="flex items-start gap-3 sm:block">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0 sm:mb-3">
+                  <Lightbulb className="h-5 w-5 sm:h-6 sm:w-6 text-accent-foreground" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">Nuestra visión</h3>
-                <p className="text-sm text-muted-foreground">Ser referentes en tecnología agrícola en Argentina.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Nuestra visión</h3>
+                  <p className="text-sm text-muted-foreground">Ser referentes en tecnología agrícola en Argentina.</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -95,16 +101,16 @@ export function About() {
             </div>
             
             {/* Stats Badge */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-card shadow-xl rounded-2xl px-10 py-4 border border-border whitespace-nowrap">
-              <div className="flex items-center gap-4">
+            <div className="absolute -bottom-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 bg-card shadow-xl rounded-2xl px-4 sm:px-10 py-4 border border-border">
+              <div className="flex items-center justify-center gap-4">
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">100K+</p>
-                  <p className="text-sm text-muted-foreground">Hectáreas cubiertas</p>
+                  <p className="text-xl sm:text-2xl font-bold text-primary">100K+</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Hectáreas cubiertas</p>
                 </div>
                 <div className="w-px h-10 bg-border" />
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">+10 años</p>
-                  <p className="text-sm text-muted-foreground">de experiencia</p>
+                  <p className="text-xl sm:text-2xl font-bold text-primary">+10 años</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">de experiencia</p>
                 </div>
               </div>
             </div>
