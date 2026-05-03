@@ -11,15 +11,15 @@ import {
 const faqs = [
   {
     question: "¿Hacen envíos a todo el país?",
-    answer: "Sí, enviamos a todas las provincias de Argentina. Trabajamos con empresas de logística confiables para que tu equipo llegue en perfectas condiciones, estés donde estés. Desde La Pampa hasta Salta, llegamos a todo el territorio nacional.",
+    answer: "Llegamos desde La Pampa hasta Salta.",
   },
   {
     question: "¿Qué garantía tienen los equipos?",
-    answer: "Todos nuestros equipos cuentan con garantía oficial del fabricante. Además, ofrecemos soporte técnico directo post-venta. Si algo falla, vas a tener a alguien con nombre y apellido que te responde y te ayuda a resolverlo rápidamente.",
+    answer: "Todos nuestros equipos cuentan con garantía oficial del fabricante. Además, ofrecemos soporte técnico directo post-venta.",
   },
   {
     question: "¿Cómo es la instalación del piloto automático?",
-    answer: "La instalación es muy sencilla y se realiza en aproximadamente 15 minutos. No requiere modificar el circuito hidráulico de tu maquinaria. Además, te brindamos asistencia remota durante todo el proceso y material explicativo detallado.",
+    answer: "La instalación es muy sencilla y se realiza en aproximadamente 15 minutos. No requiere modificar el circuito hidráulico de tu maquinaria. Además, te brindamos asistencia durante todo el proceso.",
   },
   {
     question: "¿Qué medios de pago aceptan?",
