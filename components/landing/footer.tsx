@@ -56,7 +56,7 @@ export function Footer() {
 
         <div className="border-t border-secondary-foreground/10 mt-8 pt-8">
           <p className="text-center text-secondary-foreground/50 text-sm">
-            © {currentYear} Tecnoagro. Todos los derechos reservados. Argentina.
+            © {currentYear} Tecnoagro. Todos los derechos reservados. Desarrollado por Syra Desarrollo Web y Marketing Digital
           </p>
         </div>
       </div>

@@ -58,10 +58,9 @@ const highlights = [
 
 const carouselImages = [
   { src: "/eas301.png", alt: "Sistema EAS301 Pro eSurvey" },
-  { src: "/placeholder.svg", alt: "Tractor con piloto automático en campo" },
-  { src: "/placeholder.svg", alt: "Vista del sistema instalado" },
-  { src: "/placeholder.svg", alt: "Detalle del panel de control" },
-  { src: "/placeholder.svg", alt: "Conectividad y antena RTK" },
+  { src: "/eas301 (3).jpeg", alt: "Tractor con piloto automático en campo" },
+  { src: "/eas301 (1).jpeg", alt: "Vista del sistema instalado" },
+  { src: "/eas301 (2).jpeg", alt: "Detalle del panel de control" },
 ]
 
 export function Product() {
