@@ -8,9 +8,10 @@ import { Menu, X, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { href: "#nosotros", label: "Empresa" },
-  { href: "#producto", label: "Piloto automático" },
-  { href: "#faq", label: "Preguntas frecuentes" },
+  { href: "/#nosotros", label: "Empresa" },
+  { href: "/#producto", label: "Piloto automático" },
+  { href: "/catalogo", label: "Catálogo" },
+  { href: "/#faq", label: "Preguntas frecuentes" },
 ]
 
 export function Header() {

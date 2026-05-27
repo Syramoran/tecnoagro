@@ -15,8 +15,8 @@ const footerLinks = [
 
 const socialLinks = [
   { href: "https://wa.me/5493435077008", icon: MessageCircle, label: "WhatsApp" },
-  { href: "https://instagram.com/tecnoagro", icon: Instagram, label: "Instagram" },
-  { href: "https://facebook.com/tecnoagro", icon: Facebook, label: "Facebook" },
+  { href: "https://instagram.com/tecnoagr", icon: Instagram, label: "Instagram" },
+  { href: "https://www.facebook.com/profile.php?id=61570725516211", icon: Facebook, label: "Facebook" },
 ]
 
 export function Footer() {

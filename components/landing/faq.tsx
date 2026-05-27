@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "¿Cómo es la instalación del piloto automático?",
-    answer: "La instalación es muy sencilla y se realiza en aproximadamente 15 minutos. No requiere modificar el circuito hidráulico de tu maquinaria. Además, te brindamos asistencia durante todo el proceso.",
+    answer: "La instalación es muy sencilla y se realiza en aproximadamente 30 minutos. No requiere modificar el circuito hidráulico de tu maquinaria. Además, te brindamos asistencia durante todo el proceso.",
   },
   {
     question: "¿Qué medios de pago aceptan?",
