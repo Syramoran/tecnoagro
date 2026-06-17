@@ -22,7 +22,7 @@ const models = [
     tier: "Gama Alta",
     tagline: "SkyTrix · Pantalla 12.1\" · ISOBUS completo",
     href: "/productos/nx612",
-    image: "/nx612.png",
+    image: "/chcnav-nx612/foto-producto-nx612.png",
     bg: "#14321f",
     tierClass: "bg-accent/25 text-accent",
     wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX612",
@@ -40,7 +40,7 @@ const models = [
     tier: "Gama Media",
     tagline: "PointSky · Pantalla 10.1\" · ISOBUS",
     href: "/productos/nx610",
-    image: "/nx610.png",
+    image: "/chcnav-610/foto-producto.png",
     bg: "#0f2233",
     tierClass: "bg-sky-400/20 text-sky-300",
     wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX610",
@@ -58,7 +58,7 @@ const models = [
     tier: "Acceso",
     tagline: "GNSS+INS · Instalación rápida · Precio accesible",
     href: "/productos/nx510-se",
-    image: "/nx510-se.png",
+    image: "/chcnav-nx510-se/foto-producto.png",
     bg: "#252210",
     tierClass: "bg-white/20 text-white/80",
     wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX510%20SE",
@@ -176,13 +176,14 @@ export function Product() {
                           {/* <span className={`inline-block text-xs font-semibold px-3 py-1.5 rounded-full mb-3 ${model.tierClass}`}>
                             {model.tier}
                           </span> */}
-                          <div className="bg-white/10 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center shadow-xl">
+                          <div className="bg-white/10 rounded-2xl overflow-hidden shadow-xl inline-flex">
                             <Image
                               src={model.image}
                               alt={model.name}
                               width={600}
                               height={450}
-                              className="object-contain w-full h-full"
+                              className="object-contain"
+                              priority
                             />
                           </div>
                         </div>
@@ -203,8 +204,8 @@ export function Product() {
                               key={feature.title}
                               className="flex gap-3 p-3 bg-white/10 rounded-xl hover:bg-white/15 transition-colors"
                             >
-                              <div className="w-9 h-9 rounded-lg bg-primary/30 flex items-center justify-center shrink-0">
-                                <feature.icon className="h-4 w-4 text-primary" />
+                              <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center shrink-0">
+                                <feature.icon className="h-4 w-4 text-white" />
                               </div>
                               <div>
                                 <h4 className="font-semibold text-white text-sm leading-tight">

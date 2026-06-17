@@ -23,22 +23,22 @@ const highlights = [
   {
     icon: Satellite,
     title: "Múltiples modos GNSS",
-    description: "SPP, DGPS, RTK, E-PPP, H-PPP y corrección satelital SkyTrix sin necesidad de red.",
+    video: "/chcnav-nx612/nx-612-posicionamiento.mp4",
   },
   {
     icon: Gauge,
     title: "Precisión ±2.5 cm",
-    description: "Rendimiento centimétrico constante desde 0.1 hasta 30 km/h de velocidad de trabajo.",
+    video: "/chcnav-nx612/nx-612-precision.mp4",
   },
   {
     icon: RotateCw,
     title: "5 modos de giro en U",
-    description: "Patrones de guía adaptables a cualquier tipo de cultivo y operación de campo.",
+    video: "/chcnav-nx612/nx-612-giro-en-u.mp4",
   },
   {
     icon: Tractor,
     title: "Alta versatilidad",
-    description: "Compatible con tractores, pulverizadoras, cosechadoras y trasplantadoras de arroz.",
+    video: "/chcnav-nx612/nx-612-versatilidad.mp4",
   },
 ]
 
@@ -248,7 +248,7 @@ export default function NX612Page() {
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" />
                 <div className="relative bg-muted rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
                   <Image
-                    src="/nx612.png"
+                    src="/chcnav-nx612/foto-producto-2.jpg"
                     alt="Sistema CHCNAV NX612"
                     width={600}
                     height={450}
@@ -282,13 +282,23 @@ export default function NX612Page() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-primary" />
+                  <video
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full bg-muted"
+                    aria-label={item.title}
+                  />
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mb-3 shrink-0">
+                      <item.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-foreground">{item.title}</h3>
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground text-pretty">{item.description}</p>
                 </motion.div>
               ))}
             </div>

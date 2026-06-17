@@ -1,12 +1,13 @@
 "use client"
 
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import {
   Satellite, Monitor, Wifi, Shield, Gauge,
   MessageCircle, Sprout, Tractor,
-  Signal, BarChart3, Zap, Check, ExternalLink,
+  Signal, BarChart3, Zap, Check, ExternalLink, Play,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/landing/header"
@@ -181,6 +182,16 @@ const WA_LINK = "https://wa.me/5493435077008?text=Hola%2C%20quiero%20informació
 const CHCNAV_LINK = "https://agriculture.chcnav.com/es/products/chcnav-NX510-SE"
 
 export default function NX510SEPage() {
+  const [playing, setPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handlePlay = () => {
+    if (!videoRef.current) return
+    videoRef.current.muted = false
+    videoRef.current.volume = 0.5
+    setPlaying(true)
+  }
+
   return (
     <>
       <Header />
@@ -232,12 +243,6 @@ export default function NX510SEPage() {
                       Consultar precio
                     </a>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="gap-2">
-                    <a href={CHCNAV_LINK} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-5 w-5" />
-                      Ver ficha técnica
-                    </a>
-                  </Button>
                 </div>
               </motion.div>
 
@@ -250,7 +255,7 @@ export default function NX510SEPage() {
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" />
                 <div className="relative bg-muted rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
                   <Image
-                    src="/nx510-se.png"
+                    src="/chcnav-nx510-se/foto-producto-2.jpg"
                     alt="Sistema CHCNAV NX510 SE"
                     width={600}
                     height={450}
@@ -262,38 +267,39 @@ export default function NX510SEPage() {
           </div>
         </section>
 
-        {/* ── 4 Highlights ── */}
+        {/* ── Video ── */}
         <section className="py-16 bg-secondary">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground text-balance">
-                Precisión profesional a precio accesible
-              </h2>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl bg-black">
+                <video
+                  ref={videoRef}
+                  src="/chcnav-nx510-se/nx-510se.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls={playing}
+                  className="w-full"
+                />
+                {!playing && (
+                  <button
+                    onClick={handlePlay}
+                    aria-label="Reproducir con audio"
+                    className="absolute inset-0 flex items-center justify-center group"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-black/40 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:bg-black/60">
+                      <Play className="h-8 w-8 text-white fill-white ml-1" />
+                    </div>
+                  </button>
+                )}
+              </div>
             </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {highlights.map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground text-pretty">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -426,12 +432,6 @@ export default function NX510SEPage() {
               transition={{ delay: 0.4 }}
               className="text-center mt-8"
             >
-              <Button asChild variant="outline" className="gap-2">
-                <a href={CHCNAV_LINK} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4" />
-                  Ver ficha técnica completa en CHCNAV
-                </a>
-              </Button>
             </motion.div>
           </div>
         </section>

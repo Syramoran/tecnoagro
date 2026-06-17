@@ -23,22 +23,22 @@ const highlights = [
   {
     icon: Satellite,
     title: "Múltiples modos GNSS",
-    description: "SPP, DGPS, RTK, E-PPP, H-PPP y corrección PointSky para cualquier condición de campo.",
+    video: "/chcnav-610/nx610-posicionamiento.mp4",
   },
   {
     icon: Gauge,
     title: "Precisión ±2.5 cm",
-    description: "Rendimiento centimétrico constante desde 0.1 hasta 30 km/h de velocidad de trabajo.",
+    video: "/chcnav-610/nx610-precision.mp4",
   },
   {
     icon: RotateCw,
     title: "5 modos de giro en U",
-    description: "Patrones de guía adaptables a diferentes paisajes y tipos de labor agrícola.",
+    video: "/chcnav-610/nx610-giro-en-u.mp4",
   },
   {
     icon: Tractor,
     title: "Alta versatilidad",
-    description: "Compatible con tractores, pulverizadoras, cosechadoras y trasplantadoras de arroz.",
+    video: "/chcnav-610/nx610-versatilidad.mp4",
   },
 ]
 
@@ -230,12 +230,6 @@ export default function NX610Page() {
                       Consultar precio
                     </a>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="gap-2">
-                    <a href={CHCNAV_LINK} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-5 w-5" />
-                      Ver ficha técnica
-                    </a>
-                  </Button>
                 </div>
               </motion.div>
 
@@ -248,7 +242,7 @@ export default function NX610Page() {
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" />
                 <div className="relative bg-muted rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
                   <Image
-                    src="/nx610.png"
+                    src="/chcnav-610/foto-producto-2.jpg"
                     alt="Sistema CHCNAV NX610"
                     width={600}
                     height={450}
@@ -282,13 +276,23 @@ export default function NX610Page() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-primary" />
+                  <video
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full bg-muted"
+                    aria-label={item.title}
+                  />
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mb-3 shrink-0">
+                      <item.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-foreground">{item.title}</h3>
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground text-pretty">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -424,12 +428,6 @@ export default function NX610Page() {
               transition={{ delay: 0.4 }}
               className="text-center mt-8"
             >
-              <Button asChild variant="outline" className="gap-2">
-                <a href={CHCNAV_LINK} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4" />
-                  Ver ficha técnica completa en CHCNAV
-                </a>
-              </Button>
             </motion.div>
           </div>
         </section>
