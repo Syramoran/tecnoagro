@@ -4,18 +4,24 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, MessageCircle } from "lucide-react"
+import { Menu, X, MessageCircle, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
   { href: "/#nosotros", label: "Empresa" },
-  { href: "/#producto", label: "Piloto automático" },
   { href: "/catalogo", label: "Catálogo" },
   { href: "/#faq", label: "Preguntas frecuentes" },
 ]
 
+const pilots = [
+  { href: "/catalogo/chcnav-nx612", label: "CHCNAV NX612" },
+  { href: "/catalogo/chcnav-nx610", label: "CHCNAV NX610" },
+  { href: "/catalogo/chcnav-nx510-se", label: "CHCNAV NX510 SE" },
+]
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isPilotDropdownOpen, setIsPilotDropdownOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
@@ -43,6 +49,25 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <div className="relative group">
+              <button className="text-foreground/70 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
+                Piloto automático
+                <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
+              </button>
+              <div className="absolute left-0 mt-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-white border border-border rounded-lg shadow-lg py-2">
+                  {pilots.map((pilot) => (
+                    <Link
+                      key={pilot.href}
+                      href={pilot.href}
+                      className="block px-4 py-2 text-sm text-foreground/70 hover:text-primary hover:bg-accent/50 transition-colors"
+                    >
+                      {pilot.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             <Button
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
@@ -90,6 +115,23 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                <div>
+                  <div className="text-foreground/70 font-medium text-sm py-2 mb-2">
+                    Piloto automático
+                  </div>
+                  <div className="flex flex-col gap-2 ml-4">
+                    {pilots.map((pilot) => (
+                      <Link
+                        key={pilot.href}
+                        href={pilot.href}
+                        className="text-foreground/60 hover:text-primary transition-colors text-sm py-1"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {pilot.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
                 <Button
                   asChild
                   className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 w-full"
