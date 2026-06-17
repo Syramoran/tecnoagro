@@ -22,11 +22,11 @@ export function About() {
               La empresa detrás de la tecnología
             </h2>
             <p className="text-muted-foreground text-lg mb-6 text-pretty">
-              Somos <strong>Tecnoagro</strong>, una empresa argentina dedicada a acercar 
-              los mejores equipos agrícolas importados a productores de todo el país. 
+              Somos <strong>Tecnoagro</strong>, una empresa argentina dedicada a acercar
+              los mejores equipos agrícolas importados a productores de todo el país.
             </p>
             <p className="text-muted-foreground text-lg mb-8 text-pretty">
-              Proveemos soluciones de calidad con el respaldo y la atención de personas que conocen cada producto a fondo y que entienden 
+              Proveemos soluciones de calidad con el respaldo y la atención de personas que conocen cada producto a fondo y que entienden
               tu actividad.
             </p>
 
@@ -71,7 +71,7 @@ export function About() {
             <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl" />
             <div className="relative grid grid-cols-2 gap-4">
               <Image
-                src="/foto-testimonio-3.png"
+                src="/foto-testimonio-2.png"
                 alt="Equipo técnico trabajando"
                 width={300}
                 height={400}
@@ -85,7 +85,7 @@ export function About() {
                 className="rounded-2xl shadow-lg object-cover h-64 w-full mt-8"
               />
               <Image
-                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&q=80"
+                src="/foto-testimonio-3.jpeg"
                 alt="Tecnología en el campo"
                 width={300}
                 height={400}
@@ -99,7 +99,7 @@ export function About() {
                 className="rounded-2xl shadow-lg object-cover h-64 w-full"
               />
             </div>
-            
+
             {/* Stats Badge */}
             <div className="absolute -bottom-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:w-max sm:-translate-x-1/2 bg-card shadow-xl rounded-2xl px-4 sm:px-10 py-4 border border-border">
               <div className="flex items-center justify-center gap-4">
