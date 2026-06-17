@@ -14,9 +14,9 @@ const navItems = [
 ]
 
 const pilots = [
-  { href: "/catalogo/chcnav-nx612", label: "CHCNAV NX612" },
-  { href: "/catalogo/chcnav-nx610", label: "CHCNAV NX610" },
-  { href: "/catalogo/chcnav-nx510-se", label: "CHCNAV NX510 SE" },
+  { href: "/productos/nx612", label: "CHCNAV NX612" },
+  { href: "/productos/nx610", label: "CHCNAV NX610" },
+  { href: "/productos/nx510-se", label: "CHCNAV NX510 SE" },
 ]
 
 export function Header() {
