@@ -10,16 +10,49 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+const SITE_URL = 'https://www.tecnoagroag.com.ar'
+
 export const metadata: Metadata = {
-  title: 'Tecnoagro | Tecnología Simple al Alcance de Todos',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Tecnoagro | Tecnología Simple al Alcance de Todos',
+    template: '%s | Tecnoagro',
+  },
   description: 'Tecnología agrícola importada con atención personalizada. Piloto automático, sistemas de precisión y más. Asesoramiento directo de los dueños. Envíos a todo el país.',
   keywords: ['tecnología agrícola', 'piloto automático', 'agricultura de precisión', 'tractores', 'siembra', 'pulverización', 'Argentina'],
   authors: [{ name: 'Tecnoagro' }],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: 'Tecnoagro | Tecnología Simple al Alcance de Todos',
     description: 'Tecnología agrícola importada con atención personalizada directa de los dueños.',
+    url: SITE_URL,
+    siteName: 'Tecnoagro',
     type: 'website',
     locale: 'es_AR',
+    images: [
+      {
+        url: '/foto-hero.png',
+        width: 1536,
+        height: 1024,
+        alt: 'Tecnoagro - Tecnología agrícola de precisión',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tecnoagro | Tecnología Simple al Alcance de Todos',
+    description: 'Tecnología agrícola importada con atención personalizada directa de los dueños.',
+    images: ['/foto-hero.png'],
   },
   icons: {
     icon: [
@@ -28,6 +61,20 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+}
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tecnoagro',
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/icono.png`,
+  image: `${SITE_URL}/images/logo-original.png`,
+  description: 'Tecnología agrícola importada con atención personalizada. Piloto automático, sistemas de precisión y más.',
+  sameAs: [
+    'https://www.instagram.com/tecnoagr/',
+    'https://www.facebook.com/profile.php?id=61570725516211',
+  ],
 }
 
 export const viewport: Viewport = {
@@ -44,6 +91,10 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {/* Meta Pixel Code */}
         <Script
           id="meta-pixel"

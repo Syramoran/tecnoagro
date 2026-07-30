@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { MessageCircle, ChevronLeft } from "lucide-react"
 import { products } from "@/data/products"
 import { Header } from "@/components/landing/header"
@@ -11,6 +12,43 @@ import { Button } from "@/components/ui/button"
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }))
+}
+
+// Products with a dedicated, richer landing page under /productos/* — canonicalize there
+// instead of this generic detail page to avoid duplicate-content indexing.
+const DEDICATED_LANDING_PATHS: Record<string, string> = {
+  "chcnav-nx510-se": "/productos/nx510-se",
+  "chcnav-nx610": "/productos/nx610",
+  "chcnav-nx612": "/productos/nx612",
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const product = products.find((p) => p.slug === slug)
+
+  if (!product) {
+    return {}
+  }
+
+  const canonicalPath = DEDICATED_LANDING_PATHS[slug] ?? `/catalogo/${slug}`
+
+  return {
+    title: product.name,
+    description: product.shortDescription,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: `${product.name} | Tecnoagro`,
+      description: product.shortDescription,
+      url: canonicalPath,
+      images: product.images.length > 0 ? [{ url: product.images[0] }] : undefined,
+    },
+  }
 }
 
 export default async function ProductDetailPage({
