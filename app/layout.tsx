@@ -22,8 +22,11 @@ export const metadata: Metadata = {
     locale: 'es_AR',
   },
   icons: {
-    icon: '/images/icono.png',
-    apple: '/images/icono.png',
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/images/icono.png', type: 'image/png' },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
