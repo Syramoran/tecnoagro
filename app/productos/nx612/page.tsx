@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { WhatsAppFAB } from "@/components/landing/whatsapp-fab"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 import {
   Accordion,
   AccordionContent,
@@ -175,7 +176,7 @@ const faqs = [
   },
 ]
 
-const WA_LINK = "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX612"
+const WA_LINK = getWhatsAppUrl("Hola, quiero información sobre el piloto automático NX612")
 const PDF_LINK = "https://agriculture.chcnav.com/dam/jcr:b28a3002-19a9-4e7f-9e83-feb82cc6e02e/NX612_DS_ES.pdf"
 
 export default function NX612Page() {

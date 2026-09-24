@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { WHATSAPP_NUMBER, getWhatsAppUrl } from "@/lib/whatsapp"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -19,9 +20,8 @@ export function Contact() {
     e.preventDefault()
     
     const text = `Hola! Soy ${formData.nombre} de ${formData.localidad}. ${formData.mensaje}`
-    const encodedText = encodeURIComponent(text)
-    const whatsappUrl = `https://wa.me/5493435077008?text=${encodedText}`
-    
+    const whatsappUrl = getWhatsAppUrl(text)
+
     window.open(whatsappUrl, "_blank")
   }
 
@@ -56,13 +56,13 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-secondary-foreground font-medium">WhatsApp</p>
-                  <a 
-                    href="https://wa.me/5493435077008"
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-accent hover:underline"
                   >
-                    +54 9 343 507-7008
+                    +54 9 3434 06-7555
                   </a>
                 </div>
               </div>

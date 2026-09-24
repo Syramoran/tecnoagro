@@ -6,6 +6,7 @@ import { products } from "@/data/products"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { WhatsAppFAB } from "@/components/landing/whatsapp-fab"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 import { ProductImageCarousel } from "@/components/catalog/product-image-carousel"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -63,9 +64,7 @@ export default async function ProductDetailPage({
     notFound()
   }
 
-  const waMessage = encodeURIComponent(
-    `Hola, quiero más información sobre ${product.name}`
-  )
+  const waUrl = getWhatsAppUrl(`Hola, quiero más información sobre ${product.name}`)
 
   return (
     <>
@@ -122,7 +121,7 @@ export default async function ProductDetailPage({
                   className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   <a
-                    href={`https://wa.me/5493435077008?text=${waMessage}`}
+                    href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

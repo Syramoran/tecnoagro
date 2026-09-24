@@ -15,6 +15,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 const models = [
   {
@@ -25,7 +26,7 @@ const models = [
     image: "/chcnav-nx612/foto-producto-nx612.png",
     bg: "#14321f",
     tierClass: "bg-accent/25 text-accent",
-    wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX612",
+    wa: getWhatsAppUrl("Hola, quiero información sobre el piloto automático NX612"),
     features: [
       { icon: Gauge, title: "Precisión centimétrica", description: "±2.5 cm. Opera desde 0.1 hasta 30 km/h." },
       { icon: Monitor, title: "Pantalla 12.1\" industrial", description: "Android, alta luminosidad, visible bajo el sol." },
@@ -43,7 +44,7 @@ const models = [
     image: "/chcnav-610/foto-producto.png",
     bg: "#0f2233",
     tierClass: "bg-sky-400/20 text-sky-300",
-    wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX610",
+    wa: getWhatsAppUrl("Hola, quiero información sobre el piloto automático NX610"),
     features: [
       { icon: Gauge, title: "Precisión centimétrica", description: "±2.5 cm. Opera desde 0.1 hasta 30 km/h." },
       { icon: Monitor, title: "Pantalla 10.1\" Android", description: "Interfaz 3D de calidad industrial." },
@@ -61,7 +62,7 @@ const models = [
     image: "/chcnav-nx510-se/foto-producto.png",
     bg: "#252210",
     tierClass: "bg-white/20 text-white/80",
-    wa: "https://wa.me/5493435077008?text=Hola%2C%20quiero%20información%20sobre%20el%20piloto%20automático%20NX510%20SE",
+    wa: getWhatsAppUrl("Hola, quiero información sobre el piloto automático NX510 SE"),
     features: [
       { icon: Gauge, title: "Precisión GNSS+INS", description: "±2.5 cm con compensación del terreno." },
       { icon: Monitor, title: "Pantalla 10.1\" Android", description: "Software AgNav con guía visual 3D." },

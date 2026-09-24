@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { MessageCircle, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 export function Hero() {
   return (
@@ -47,7 +48,7 @@ export function Hero() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8"
               >
                 <a
-                  href="https://wa.me/5493435077008?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+                  href={getWhatsAppUrl("Hola, quiero más información sobre sus productos")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

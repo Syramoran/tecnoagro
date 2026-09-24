@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Facebook, MessageCircle } from "lucide-react"
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp"
 
 const footerLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -14,7 +15,7 @@ const footerLinks = [
 ]
 
 const socialLinks = [
-  { href: "https://wa.me/5493435077008", icon: MessageCircle, label: "WhatsApp" },
+  { href: `https://wa.me/${WHATSAPP_NUMBER}`, icon: MessageCircle, label: "WhatsApp" },
   { href: "https://instagram.com/tecnoagr", icon: Instagram, label: "Instagram" },
   { href: "https://www.facebook.com/profile.php?id=61570725516211", icon: Facebook, label: "Facebook" },
 ]

@@ -1,11 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 export function WhatsAppFAB() {
   return (
     <motion.a
-      href="https://wa.me/5493435077008?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+      href={getWhatsAppUrl("Hola, quiero más información sobre sus productos")}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20BD5A] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
